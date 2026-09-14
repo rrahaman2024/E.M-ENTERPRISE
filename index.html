@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EM Enterprises — Electrical Operations</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#718096;--line:#e7ebf2;--brand:#2563eb;--brand2:#0f766e;--danger:#dc2626;--warn:#d97706;--ok:#16a34a;--shadow:0 8px 24px #1720330d}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}.app{display:flex;min-height:100vh}.side{width:250px;background:#101827;color:#fff;padding:22px 14px;position:fixed;inset:0 auto 0 0}.brand{font-weight:800;font-size:21px;padding:8px 12px 24px}.brand span{color:#60a5fa}.tag{font-size:11px;color:#94a3b8;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px}.nav button{display:block;width:100%;border:0;background:transparent;color:#cbd5e1;text-align:left;padding:11px 12px;border-radius:9px;margin:3px 0;cursor:pointer}.nav button:hover,.nav button.active{background:#1e3a5f;color:#fff}.main{margin-left:250px;width:calc(100% - 250px);padding:24px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}.top h1{margin:0;font-size:25px}.sub{color:var(--muted);font-size:13px;margin-top:4px}.actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:#fff;padding:9px 13px;border-radius:8px;cursor:pointer}.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}.btn.danger{color:#fff;background:var(--danger);border-color:var(--danger)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:17px}.kpi .label{font-size:12px;color:var(--muted)}.kpi .num{font-size:26px;font-weight:800;margin:6px 0}.up{color:var(--ok);font-size:12px}.down{color:var(--danger);font-size:12px}
+.section{margin-top:16px}.section h2{font-size:17px;margin:0 0 12px}.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.table th{color:var(--muted);font-size:11px;text-transform:uppercase}.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:700}.b-red{background:#fee2e2;color:#b91c1c}.b-green{background:#dcfce7;color:#166534}.b-blue{background:#dbeafe;color:#1d4ed8}.b-amber{background:#fef3c7;color:#92400e}
+.chart{height:210px;display:flex;align-items:end;gap:10px;padding:15px 5px 8px}.bar{flex:1;background:#93c5fd;border-radius:6px 6px 2px 2px;min-width:18px;position:relative}.bar span{position:absolute;bottom:-20px;font-size:10px;color:var(--muted);width:100%;text-align:center}.bar i{position:absolute;top:-18px;left:0;right:0;text-align:center;font-size:10px;font-style:normal;color:var(--muted)}
+.search{display:flex;gap:8px;margin-bottom:12px}.search input,.search select,.form input,.form select{border:1px solid var(--line);background:#fff;border-radius:8px;padding:9px 10px;outline:none}.search input{flex:1}.hidden{display:none}.page{display:none}.page.active{display:block}.modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalbox{background:#fff;width:min(560px,100%);border-radius:14px;padding:20px}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form label{font-size:12px;color:var(--muted)}.form input,.form select{width:100%;margin-top:5px}.full{grid-column:1/-1}.foot{margin-top:18px;color:var(--muted);font-size:11px}
+@media(max-width:900px){.side{width:72px}.brand{font-size:0}.brand span{font-size:18px}.tag,.nav button span{display:none}.nav button{text-align:center}.main{margin-left:72px;width:calc(100% - 72px)}.grid{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}}
+@media(max-width:600px){.main{padding:14px}.grid{grid-template-columns:1fr}.top{align-items:flex-start}.actions .btn:not(.primary){display:none}.form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">⚡ <span>EM ENTERPRISES</span></div>
+  <div class="tag">Electrical Operations</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">▦ <span>Dashboard</span></button>
+    <button data-page="consumers">👥 <span>Consumers</span></button>
+    <button data-page="disconnection">⛔ <span>Disconnection</span></button>
+    <button data-page="reconnection">🔌 <span>Reconnection</span></button>
+    <button data-page="meter">🔧 <span>Meter Management</span></button>
+    <button data-page="nsc">📝 <span>NSC / New Connection</span></button>
+    <button data-page="recovery">₹ <span>Recovery</span></button>
+    <button data-page="crew">👷 <span>Field Crew</span></button>
+    <button data-page="reports">▥ <span>Reports & Analytics</span></button>
+    <button data-page="settings">⚙ <span>Settings</span></button>
+  </nav>
+</aside>
+
+<main class="main">
+<section id="dashboard" class="page active">
+<div class="top"><div><h1>Operations Dashboard</h1><div class="sub">EM Enterprises • Electrical Utility Management</div></div><div class="actions"><button class="btn" onclick="exportCSV()">Export</button><button class="btn primary" onclick="openModal('consumer')">+ Add Consumer</button></div></div>
+<div class="grid">
+ <div class="card kpi"><div class="label">Active Consumers</div><div class="num">12,842</div><div class="up">↑ 4.8% this month</div></div>
+ <div class="card kpi"><div class="label">Outstanding Dues</div><div class="num">₹18.42 L</div><div class="down">↓ 7.2% pending</div></div>
+ <div class="card kpi"><div class="label">Today's Recovery</div><div class="num">₹4.82 L</div><div class="up">118 / 142 resolved</div></div>
+ <div class="card kpi"><div class="label">Field Crews</div><div class="num">8 / 8</div><div class="up">All active</div></div>
+</div>
+<div class="cols section">
+ <div class="card"><h2>Daily Recovery</h2><div class="chart">${[45,62,55,78,70,92,84,68,96,88,74,91].map((v,i)=>`<div class="bar" style="height:${v}%"><i>₹${(v/10).toFixed(1)}L</i><span>${i+1}</span></div>`).join('')}</div></div>
+ <div class="card"><h2>Work Status</h2><p>Disconnection <b style="float:right">83%</b></p><div style="height:8px;background:#e5e7eb;border-radius:99px"><div style="height:8px;width:83%;background:#2563eb;border-radius:99px"></div></div><p>Meter replacement <b style="float:right">71%</b></p><div style="height:8px;background:#e5e7eb;border-radius:99px"><div style="height:8px;width:71%;background:#0f766e;border-radius:99px"></div></div><p>NSC inspection <b style="float:right">64%</b></p><div style="height:8px;background:#e5e7eb;border-radius:99px"><div style="height:8px;width:64%;background:#d97706;border-radius:99px"></div></div></div>
+</div>
+<div class="card section"><h2>Priority Work</h2><div class="tablewrap"><table class="table"><thead><tr><th>Consumer</th><th>Area</th><th>Task</th><th>Dues</th><th>Status</th></tr></thead><tbody>
+<tr><td>661209381</td><td>Chanchal CCC</td><td>Disconnection</td><td>₹14,820</td><td><span class="badge b-red">Pending</span></td></tr>
+<tr><td>661201994</td><td>Ward 7</td><td>Burnt Meter</td><td>₹8,460</td><td><span class="badge b-amber">High Priority</span></td></tr>
+<tr><td>661208831</td><td>Station Road</td><td>Reconnection</td><td>₹0</td><td><span class="badge b-green">Completed</span></td></tr>
+</tbody></table></div></div>
+</section>
+
+<section id="consumers" class="page"><div class="top"><div><h1>Consumers</h1><div class="sub">Search, manage and assign consumer records</div></div><button class="btn primary" onclick="openModal('consumer')">+ Add Consumer</button></div><div class="card"><div class="search"><input id="consumerSearch" placeholder="Search consumer ID, name or area" oninput="renderConsumers()"><select><option>All Status</option><option>Active</option><option>Disconnected</option></select></div><div class="tablewrap"><table class="table"><thead><tr><th>ID</th><th>Name</th><th>Area</th><th>Meter</th><th>Dues</th><th>Status</th><th>Action</th></tr></thead><tbody id="consumerRows"></tbody></table></div></div></section>
+
+<section id="disconnection" class="page"><div class="top"><div><h1>Disconnection Management</h1><div class="sub">Plan, assign and close disconnection jobs</div></div><button class="btn primary" onclick="openModal('job')">+ New Job</button></div><div class="card"><div class="tablewrap"><table class="table"><thead><tr><th>Job</th><th>Consumer</th><th>Feeder</th><th>Dues</th><th>Assigned Crew</th><th>Status</th></tr></thead><tbody>
+<tr><td>DC-1042</td><td>661209381</td><td>11kV Chanchal</td><td>₹14,820</td><td>Crew 03</td><td><span class="badge b-red">Pending</span></td></tr><tr><td>DC-1041</td><td>661208112</td><td>11kV Station</td><td>₹9,210</td><td>Crew 02</td><td><span class="badge b-blue">Assigned</span></td></tr><tr><td>DC-1038</td><td>661207731</td><td>11kV Market</td><td>₹22,500</td><td>Crew 06</td><td><span class="badge b-green">Completed</span></td></tr>
+</tbody></table></div></div></section>
+
+<section id="reconnection" class="page"><div class="top"><div><h1>Reconnection</h1><div class="sub">RO clearance and reconnection tracking</div></div><button class="btn primary" onclick="alert('RO request form ready for integration')">+ Create RO</button></div><div class="card"><div class="tablewrap"><table class="table"><thead><tr><th>RO</th><th>Consumer</th><th>Payment</th><th>Clearance</th><th>Status</th></tr></thead><tbody><tr><td>RO-2026-331</td><td>661208831</td><td>₹12,440</td><td>3 min</td><td><span class="badge b-green">Reconnected</span></td></tr><tr><td>RO-2026-332</td><td>661209117</td><td>₹8,900</td><td>Pending</td><td><span class="badge b-amber">Processing</span></td></tr></tbody></table></div></div></section>
+
+<section id="meter" class="page"><div class="top"><div><h1>Meter Management</h1><div class="sub">Replacement, testing and inventory</div></div><button class="btn primary" onclick="openModal('meter')">+ Meter Entry</button></div><div class="grid"><div class="card kpi"><div class="label">Meters in Stock</div><div class="num">284</div></div><div class="card kpi"><div class="label">Testing Pending</div><div class="num">17</div></div><div class="card kpi"><div class="label">Replacements Today</div><div class="num">26</div></div><div class="card kpi"><div class="label">Faulty Returned</div><div class="num">9</div></div></div><div class="card section"><div class="tablewrap"><table class="table"><thead><tr><th>Slip</th><th>Consumer</th><th>Old Meter</th><th>New Meter</th><th>Reading</th><th>Status</th></tr></thead><tbody><tr><td>MR-8810</td><td>661201994</td><td>GEN-88910</td><td>SM-99120</td><td>00004.2</td><td><span class="badge b-green">Verified</span></td></tr><tr><td>MR-8811</td><td>661209551</td><td>GEN-88201</td><td>SM-99131</td><td>00000.0</td><td><span class="badge b-amber">Testing</span></td></tr></tbody></table></div></div></section>
+
+<section id="nsc" class="page"><div class="top"><div><h1>NSC / New Connection</h1><div class="sub">Application, inspection and estimate workflow</div></div><button class="btn primary" onclick="openModal('nsc')">+ New Application</button></div><div class="card"><div class="tablewrap"><table class="table"><thead><tr><th>Application</th><th>Type</th><th>Load</th><th>Pole Distance</th><th>Stage</th></tr></thead><tbody><tr><td>NSC-2026-881</td><td>Domestic</td><td>3.5 kW</td><td>18.5 m</td><td><span class="badge b-blue">Estimate Generated</span></td></tr><tr><td>NSC-2026-904</td><td>Commercial</td><td>10 kVA</td><td>32 m</td><td><span class="badge b-amber">AE Verification</span></td></tr></tbody></table></div></div></section>
+
+<section id="recovery" class="page"><div class="top"><div><h1>Recovery</h1><div class="sub">Collection performance and outstanding dues</div></div><button class="btn primary" onclick="openModal('payment')">+ Record Payment</button></div><div class="grid"><div class="card kpi"><div class="label">Today's Collection</div><div class="num">₹4.82 L</div></div><div class="card kpi"><div class="label">MTD Collection</div><div class="num">₹38.6 L</div></div><div class="card kpi"><div class="label">Outstanding</div><div class="num">₹18.42 L</div></div><div class="card kpi"><div class="label">Recovery Rate</div><div class="num">92.4%</div></div></div><div class="card section"><h2>Recent Payments</h2><table class="table"><thead><tr><th>Receipt</th><th>Consumer</th><th>Amount</th><th>Mode</th><th>Date</th></tr></thead><tbody><tr><td>RC-88201</td><td>661209381</td><td>₹14,820</td><td>UPI</td><td>12 Sep 2026</td></tr><tr><td>RC-88200</td><td>661208112</td><td>₹9,210</td><td>Cash</td><td>12 Sep 2026</td></tr></tbody></table></div></section>
+
+<section id="crew" class="page"><div class="top"><div><h1>Field Crew</h1><div class="sub">Crew assignment and work status</div></div><button class="btn primary" onclick="openModal('crew')">+ Add Crew</button></div><div class="grid"><div class="card"><b>Crew 01</b><p>Raju • 4 jobs today</p><span class="badge b-green">Active</span></div><div class="card"><b>Crew 02</b><p>Imran • 6 jobs today</p><span class="badge b-green">Active</span></div><div class="card"><b>Crew 03</b><p>Subhankar • 5 jobs today</p><span class="badge b-blue">On Route</span></div><div class="card"><b>Crew 04</b><p>Arif • 3 jobs today</p><span class="badge b-green">Active</span></div></div></section>
+
+<section id="reports" class="page"><div class="top"><div><h1>Reports & Analytics</h1><div class="sub">Operational KPIs and downloadable reports</div></div><button class="btn primary" onclick="exportCSV()">Export CSV</button></div><div class="cols"><div class="card"><h2>Feeder Loss Analysis</h2><p>Chanchal Sub-Division</p><h1>-3.4% loss</h1><p class="up">Billing efficiency 96.2%</p></div><div class="card"><h2>Monthly Summary</h2><p>Disconnections closed: <b>1,284</b></p><p>Meter replacements: <b>612</b></p><p>NSC completed: <b>194</b></p></div></div></section>
+
+<section id="settings" class="page"><div class="top"><div><h1>Settings</h1><div class="sub">Company and system preferences</div></div></div><div class="card"><h2>Company Profile</h2><div class="form"><label>Company Name<input value="EM Enterprises"></label><label>Business Type<input value="Electrical & Utility Services"></label><label>Support Mobile<input value="+91 XXXXX XXXXX"></label><label>Email<input value="admin@ementerprises.in"></label><label class="full">Address<input value="West Bengal, India"></label></div><button class="btn primary" style="margin-top:14px" onclick="alert('Settings saved')">Save Settings</button></div></section>
+
+<div class="foot">EM Enterprises • Electrical Operations Management • Prototype ready for database/API integration</div>
+</main></div>
+
+<div id="modal" class="modal"><div class="modalbox"><div class="top"><h2 id="modalTitle">Add</h2><button class="btn" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+
+<script>
+const consumers=[
+{id:'661209381',name:'Chanchal Traders',area:'Chanchal CCC',meter:'GEN-88910',dues:14820,status:'Disconnected'},
+{id:'661201994',name:'Mitali Stores',area:'Ward 7',meter:'GEN-88201',dues:8460,status:'Active'},
+{id:'661208831',name:'Rahman House',area:'Station Road',meter:'SM-77211',dues:0,status:'Active'},
+{id:'661209117',name:'Saha Enterprise',area:'Market',meter:'SM-77420',dues:8900,status:'Active'}
+];
+function money(n){return '₹'+Number(n).toLocaleString('en-IN')}
+function renderConsumers(){
+ const q=(document.getElementById('consumerSearch')?.value||'').toLowerCase();
+ const rows=consumers.filter(x=>Object.values(x).join(' ').toLowerCase().includes(q)).map(x=>`<tr><td>${x.id}</td><td>${x.name}</td><td>${x.area}</td><td>${x.meter}</td><td>${money(x.dues)}</td><td><span class="badge ${x.status==='Active'?'b-green':'b-red'}">${x.status}</span></td><td><button class="btn" onclick="alert('Opening ${x.id}')">View</button></td></tr>`).join('');
+ document.getElementById('consumerRows').innerHTML=rows;
+}
+renderConsumers();
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(b.dataset.page).classList.add('active');});
+function openModal(type){
+ const titles={consumer:'Add Consumer',job:'New Disconnection Job',meter:'Meter Entry',nsc:'New NSC Application',payment:'Record Payment',crew:'Add Field Crew'};
+ document.getElementById('modalTitle').textContent=titles[type]||'Add';
+ document.getElementById('modalBody').innerHTML=`<div class="form"><label>Reference / ID<input placeholder="Enter ID"></label><label>Name / Consumer<input placeholder="Enter name"></label><label>Area<input placeholder="Area / CCC"></label><label>Status<select><option>Pending</option><option>Active</option><option>Completed</option></select></label><label class="full">Notes<input placeholder="Notes"></label></div><button class="btn primary" style="margin-top:14px" onclick="saveModal()">Save Record</button>`;
+ document.getElementById('modal').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function saveModal(){closeModal();alert('Record saved in prototype. Connect your database/API for permanent storage.')}
+function exportCSV(){const data=[['Consumer ID','Name','Area','Meter','Dues','Status'],...consumers.map(x=>[x.id,x.name,x.area,x.meter,x.dues,x.status])];const csv=data.map(r=>r.join(',')).join('\\n');const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='em-enterprises-consumers.csv';a.click();}
+</script>
+</body></html>
